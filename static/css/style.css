@@ -1,6 +1,6 @@
 /*
-e0fbfc
-c2dfe3
+5800FF
+00D7FF
 9db4c0
 */
 
@@ -9,13 +9,14 @@ body {
 }
 
 header {
-    background-color: #e0fbfc;
+    background-color: #5800FF;
     padding: 30px;
 }
 
 .header_wrapper {
     width: 1100px;
     margin: 0 auto;
+    padding: 0 30px 0 30px;
 }
 
 .project_name, .project_nav {
@@ -24,23 +25,30 @@ header {
 }
 
 header .project_name {
-    width: 50%;
-    color: #5e636e;
+    position: relative;
+    width: 200px;
+}
+
+header .project_logo {
+    width: 70px;
+    height: 70px;
+    background-image: url("/static/images/project_logo.png");
+    background-position: 50%;
+    background-size: contain;
+    margin: 0 0 0 40px;
+    cursor: pointer;
 }
 
 header .first_line {
+    position: absolute;
+    color: #ffffff;
     font-size: 36px;
     font-weight: 700;
-    margin: 0 0 10px 0;
-}
-
-header .second_line {
-    font-size: 20px;
-    font-weight: 700;
+    bottom: -5px
 }
 
 .project_nav {
-    width: calc(50% - 5px);
+    width: calc(100% - 205px);
     line-height: 46px;
 }
 
@@ -63,7 +71,7 @@ header .second_line {
 .project_nav_wrapper ul li a:visited {
     display: block;
     font-size: 20px;
-    color: #5e636e;
+    color: #ffffff;
     text-decoration-line: none;
     padding: 10px 20px 10px 20px;
     -webkit-transition: all 500ms ease;
@@ -96,7 +104,7 @@ header .second_line {
 }
 
 footer {
-    background-color: #9db4c0;
+    background-color: #00D7FF;
     padding: 30px;
 }
 

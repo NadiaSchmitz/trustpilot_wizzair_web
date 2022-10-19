@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png')}}">
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -17,21 +18,21 @@
     <section class="page_wrapper">
         <header>
             <div class="header_wrapper">
-                <div class="project_name">
-                    <p class="first_line">Wizzair</p>
-                    <p class="second_line">Trustpilot</p>
-                </div>
+                <a class="project_name" href="/">
+                    <div class="project_logo"></div>
+                    <p class="first_line">Sandkasten</p>
+                </a>
                 <div class="project_nav">
                     <nav class="project_nav_wrapper">
                         <ul>
                             <li>
-                                <a href="/">Projekt</a>
+                                <a href="/about_me">Über mich</a>
                             </li>
                             <li>
-                                <a href="/result">Ergebnis</a>
+                                <a href="/projects">Projekte</a>
                             </li>
                             <li>
-                                <a href="/description">Beschreibung</a>
+                                <a href="/articles">Artikel</a>
                             </li>
                         </ul>
                     </nav>

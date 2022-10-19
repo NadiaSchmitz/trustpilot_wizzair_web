@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+<h1  class="content_header">Neuer Artikel</h1>
+<div class="content_body">
+    <form method="post">
+        <input type="text" name="title" id="title" placeholder="Name">
+        <textarea type="textarea" name="intro" id="intro" placeholder="Überblick"></textarea>
+        <textarea type="textarea" name="text" id="text" placeholder="Text"></textarea>
+        <input type="submit" value="Hinzufügen">
+    </form>
+</div>
+
+{% endblock %}
