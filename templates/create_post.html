@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Home
+Neuer Post
 {% endblock %}
 
 {% block body %}
 
-<h1  class="content_header">Neuer Artikel</h1>
-<div class="content_body">
+<div class="content_body page_pattern">
+    <h1  class="content_header">Neuer Post</h1>
     <form method="post">
         <input type="text" name="title" id="title" placeholder="Name">
-        <textarea type="textarea" name="intro" id="intro" placeholder="Überblick"></textarea>
         <textarea type="textarea" name="text" id="text" placeholder="Text"></textarea>
+        <textarea type="textarea" name="link" id="link" placeholder="link"></textarea>
         <input type="submit" value="Hinzufügen">
     </form>
 </div>

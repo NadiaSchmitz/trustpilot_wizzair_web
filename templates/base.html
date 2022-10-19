@@ -8,16 +8,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posts.css')}}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.png')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <title>{% block title %}{% endblock %}</title>
+    <script>
+        $(document).ready(function(){
+          $('.bxslider').bxSlider({
+            mode: 'fade',
+            captions: false,
+            auto: true,
+            pager: false,
+            controls: false
+          });
+        });
+    </script>
 </head>
 <body>
     <section class="page_wrapper">
         <header>
-            <div class="header_wrapper">
+            <div class="header_wrapper page_pattern">
                 <a class="project_name" href="/">
                     <div class="project_logo"></div>
                     <p class="first_line">Sandkasten</p>
@@ -32,7 +51,7 @@
                                 <a href="/projects">Projekte</a>
                             </li>
                             <li>
-                                <a href="/articles">Artikel</a>
+                                <a href="/posts">Posts</a>
                             </li>
                         </ul>
                     </nav>
@@ -45,7 +64,7 @@
             </div>
         </section>
         <footer>
-            <div class="footer_wrapper">
+            <div class="footer_wrapper page_pattern">
                 <p>Das Projekt wurde nur zu Bildungszwecken erstellt</p>
             </div>
         </footer>

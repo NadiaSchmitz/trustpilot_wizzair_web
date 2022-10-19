@@ -8,15 +8,16 @@ app.config["SQLALCHEMY_TRACK_MODIFIKATIONS"] = False
 db = SQLAlchemy(app)
 
 
-class Article(db.Model):
+class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    intro = db.Column(db.String(600), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    link = db.Column(db.String(200), nullable=False)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Article %r>' % self.id
+        return '<Post %r>' % self.id
+
 
 with app.app_context():
     db.create_all()
@@ -37,28 +38,29 @@ def projects():
     return render_template('projects.html')
 
 
-@app.route('/articles')
-def articles():
-    return render_template('articles.html')
+@app.route('/posts')
+def posts():
+    posts = Post.query.order_by(Post.date).all()
+    return render_template('posts.html', posts=posts)
 
 
-@app.route('/create_article', methods=["POST", "GET"])
-def create_article():
+@app.route('/create_post', methods=["POST", "GET"])
+def create_post():
     if request.method == "POST":
         title = request.form["title"]
-        intro = request.form["intro"]
         text = request.form["text"]
+        link = request.form["link"]
 
-        article = Article(title=title, intro=intro, text=text)
+        post = Post(title=title, text=text, link=link)
 
         try:
-            db.session.add(article)
+            db.session.add(post)
             db.session.commit()
             return redirect('/')
         except:
             return "Ein Fehler ist aufgetreten"
     else:
-        return render_template("create_article.html")
+        return render_template("create_post.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
