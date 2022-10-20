@@ -16,6 +16,7 @@
 
 .slider_item_2 {
     background-image: url("/static/images/slider_2.jpg");
+    background-position: 50% 70%;
 }
 
 .slider_item_3 {

@@ -8,6 +8,24 @@ app.config["SQLALCHEMY_TRACK_MODIFIKATIONS"] = False
 db = SQLAlchemy(app)
 
 
+class Project(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    image_1 = db.Column(db.String(100), nullable=True)
+    image_2 = db.Column(db.String(100), nullable=True)
+    image_3 = db.Column(db.String(100), nullable=True)
+    image_4 = db.Column(db.String(100), nullable=True)
+    image_5 = db.Column(db.String(100), nullable=True)
+    video_1 = db.Column(db.String(200), nullable=True)
+    video_2 = db.Column(db.String(200), nullable=True)
+    video_3 = db.Column(db.String(200), nullable=True)
+    video_4 = db.Column(db.String(200), nullable=True)
+    video_5 = db.Column(db.String(200), nullable=True)
+    link_github = db.Column(db.String(200), nullable=True)
+    date = db.Column(db.DateTime, default=datetime.utcnow())
+
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -38,10 +56,10 @@ def projects():
     return render_template('projects.html')
 
 
-@app.route('/posts')
+@app.route('/diary')
 def posts():
     posts = Post.query.order_by(Post.date).all()
-    return render_template('posts.html', posts=posts)
+    return render_template('diary.html', posts=posts)
 
 
 @app.route('/create_post', methods=["POST", "GET"])
@@ -61,6 +79,12 @@ def create_post():
             return "Ein Fehler ist aufgetreten"
     else:
         return render_template("create_post.html")
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('/404.html'), 404
+
 
 if __name__ == "__main__":
     app.run(debug=True)

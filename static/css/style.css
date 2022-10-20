@@ -1,8 +1,4 @@
-/*
-#19a5c8
-00D7FF
-9db4c0
-*/
+
 
 body {
     font-family: 'Roboto Condensed', sans-serif;
@@ -103,16 +99,42 @@ header .first_line {
 .content_header {
     font-size: 36px;
     font-weight: 700;
-    color: #5e636e;
-    text-decoration: underline;
-    text-decoration-color: #c2dfe3;
+    color: #036A82;
     margin: 0 0 50px 0;
 }
 
 .content_body {
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 60px 30px 60px 30px;
+    padding: 60px 30px 120px 30px;
+}
+
+.button_page {
+    display: block;
+    width: 170px;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #19a5c8;
+    padding: 10px 20px 10px 20px;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.button_page:hover,
+.button_page:active {
+    background-color: #036A82;
+}
+
+.button_page_left {
+    margin-left: auto;
 }
 
 footer {
